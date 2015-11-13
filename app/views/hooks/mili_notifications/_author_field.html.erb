@@ -1,0 +1,14 @@
+<table class='attributes'>
+  <tbody>
+    <tr>
+      <th>Заказчик:</th>
+      <td><%= issue.author %></td>
+      <th>Ответственный:</th>
+      <td><%= issue.responsible ? issue.responsible : '-' %></td>
+    </tr>
+    <tr>
+      <th>Исполнитель:</th>
+      <td><%= issue.assigned_to ? issue.assigned_to : '-' %></td>
+    </tr>
+  </tbody>
+</table>

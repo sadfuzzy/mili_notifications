@@ -1,0 +1,23 @@
+<h2>Issue Notifications</h2>
+
+<div class='splitcontent'>
+  <div class='splitcontentleft'>
+    <h3>Учвстники</h3>
+    <% @project.members.each do |member| %>
+      <p>
+        <b><%= member.name %></b>
+
+        <span style='margin-right:45%;float:right;'>
+          <%- unsubscribed = @muted && @muted.where(user_id: member).present? -%>
+          <%- if unsubscribed -%>
+            <%= link_to 'подписать', { controller: :issue_notifications, action: :sub, member: member.id, id: @project }, method: :post %>
+          <%- else -%>
+            <%= link_to 'отписать', { controller: :issue_notifications, action: :unsub, member: member.id, id: @project }, method: :post %>
+          <%- end -%>
+        </span>
+      </p>
+    <% end %>
+  </div>
+  <div class='splitcontentright'>
+  </div>
+</div>
